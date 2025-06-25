@@ -10,8 +10,8 @@ services:
       DB_URL: jdbc:postgresql://db:5432/money_observer
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
-      EMAIL: any #nazar.shuliak.oi.2022@lpnu.ua
-      EMAIL_API_KEY: any #etvcjawuswtnfqab
+      EMAIL: any 
+      EMAIL_API_KEY: any 
       JWT_KEY: your-secret-key
     depends_on:
       - db
