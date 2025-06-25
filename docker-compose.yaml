@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+
+  backend:
+    image: money-observer-backend:latest
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/money_observer
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      EMAIL: any #nazar.shuliak.oi.2022@lpnu.ua
+      EMAIL_API_KEY: any #etvcjawuswtnfqab
+      JWT_KEY: your-secret-key
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: money_observer
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
